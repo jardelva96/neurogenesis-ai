@@ -1,13 +1,6 @@
 # 🧠 NeuroGenesis AI
 
-![GitHub repo size](https://img.shields.io/github/repo-size/seu-usuario/neurogenesis-ai)
-![GitHub license](https://img.shields.io/github/license/seu-usuario/neurogenesis-ai)
-![GitHub issues](https://img.shields.io/github/issues/seu-usuario/neurogenesis-ai)
-![GitHub forks](https://img.shields.io/github/forks/seu-usuario/neurogenesis-ai)
-![GitHub stars](https://img.shields.io/github/stars/seu-usuario/neurogenesis-ai)
-
 ## Um projeto experimental de simulação de crescimento neural artificial, combinando **.NET 8** e **Angular 17**.
-
 
 ## 📖 Sobre o Projeto
 
