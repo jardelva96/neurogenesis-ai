@@ -1,8 +1,3 @@
-Aqui está o README.md inteiro:
-
-markdown
-Copiar
-Editar
 # 🧠 NeuroGenesis AI
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/seu-usuario/neurogenesis-ai)
@@ -11,32 +6,17 @@ Editar
 ![GitHub forks](https://img.shields.io/github/forks/seu-usuario/neurogenesis-ai)
 ![GitHub stars](https://img.shields.io/github/stars/seu-usuario/neurogenesis-ai)
 
-> Um projeto experimental de simulação de crescimento neural artificial, combinando **.NET 8** e **Angular 17**.
+## Um projeto experimental de simulação de crescimento neural artificial, combinando **.NET 8** e **Angular 17**.
 
----
-
-## 📋 Índice
-
-- [Sobre o Projeto](#sobre-o-projeto)
-- [Tecnologias](#tecnologias)
-- [Instalação](#instalação)
-- [Como Usar](#como-usar)
-- [Estrutura de Pastas](#estrutura-de-pastas)
-- [Funcionalidades](#funcionalidades)
-- [Status do Projeto](#status-do-projeto)
-- [Licença](#licença)
-- [Contato](#contato)
-
----
 
 ## 📖 Sobre o Projeto
 
 O **NeuroGenesis AI** é uma plataforma que simula o comportamento de um cérebro virtual, permitindo:
 
-- Nascimento, amadurecimento e conexão de neurônios.
-- Formação de clusters (agrupamentos neurais).
-- Estímulos externos que alteram o estado do sistema.
-- Exportação de snapshots em CSV para análise posterior.
+### Nascimento, amadurecimento e conexão de neurônios.
+### Formação de clusters (agrupamentos neurais).
+### Estímulos externos que alteram o estado do sistema.
+### Exportação de snapshots em CSV para análise posterior.
 
 Este projeto é uma primeira etapa para a criação de um sistema **auto-adaptativo**, inspirado na **neurogênese humana**.
 
@@ -69,7 +49,7 @@ O **frontend** está atualmente em **fase inicial de desenvolvimento** e novas f
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/neurogenesis-ai.git
+git clone https://github.com/jardelva96/neurogenesis-ai.git
 ```
 ```bash
 
