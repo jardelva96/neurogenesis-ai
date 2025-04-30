@@ -1,128 +1,117 @@
 # 🧠 NeuroGenesis AI
 
-## Um projeto experimental de simulação de crescimento neural artificial, combinando **.NET 8** e **Angular 17**.
-
-## 📖 Sobre o Projeto
-
-O **NeuroGenesis AI** é uma plataforma que simula o comportamento de um cérebro virtual, permitindo:
-
-### Nascimento, amadurecimento e conexão de neurônios.
-### Formação de clusters (agrupamentos neurais).
-### Estímulos externos que alteram o estado do sistema.
-### Exportação de snapshots em CSV para análise posterior.
-
-Este projeto é uma primeira etapa para a criação de um sistema **auto-adaptativo**, inspirado na **neurogênese humana**.
-
-O **frontend** está atualmente em **fase inicial de desenvolvimento** e novas funcionalidades de visualização serão adicionadas.
+An experimental project simulating artificial neural growth using **.NET 8** and **Angular 17**.
 
 ---
 
-## 🛠 Tecnologias
+## 📖 About the Project
 
-### Backend
+**NeuroGenesis AI** is a platform that simulates the behavior of a virtual brain, enabling:
 
-- [ASP.NET Core 8](https://learn.microsoft.com/aspnet/core/)
-- C# 12
-- REST API
-- Geração de arquivos CSV
+- 🧬 Birth, maturation, and connection of neurons  
+- 🧠 Formation of neural clusters  
+- ⚡ External stimuli that alter the brain's state  
+- 📁 Export of CSV snapshots for further analysis  
 
-### Frontend
+> This is the first step toward building a self-adaptive system inspired by human neurogenesis.
 
-- [Angular 17 Standalone](https://angular.dev/)
-- Vite.js para build e HMR
-- [Ngx-Charts](https://swimlane.gitbook.io/ngx-charts/)
-- [Ngx-Graph](https://github.com/swimlane/ngx-graph)
-- Bootstrap (planejado para futuro layout)
+⚠️ The **frontend is currently in early development** and more visualization features will be added soon.
 
 ---
 
-## ⚙️ Instalação
+## 🛠 Technologies
 
-### Backend (.NET)
+### Backend (.NET Core 8)
+- `ASP.NET Core 8`
+- `C# 12`
+- `REST API`
+- `CSV file generation`
 
+### Frontend (Angular)
+- `Angular 17` (standalone)
+- `Vite.js` (build + HMR)
+- `Ngx-Charts`
+- `Ngx-Graph`
+- `Bootstrap` *(planned for layout)*
+
+---
+
+## ⚙️ Installation
+
+### 🔧 Backend (.NET)
 ```bash
-# Clone o repositório
+# Clone the repository
 git clone https://github.com/jardelva96/neurogenesis-ai.git
-```
-```bash
 
-# Acesse o diretório da API
+# Go to the API directory
 cd NeuroGenesisAI/NeuroGenesisAI.API
-```
 
-```bash
-
-# Execute a API
+# Run the API
 dotnet run
 ```
-A API estará disponível em:
-```bash
-http://localhost:5049/
-```
-Frontend (Angular)
+
+API available at:
+👉 http://localhost:5049/
+
+🖥️ Frontend (Angular)
 ```bash
 
-# Acesse o diretório do frontend
+# Go to the frontend folder
 cd neuro-genesis-front
-```
 
-```bash
-
-# Instale as dependências
+# Install dependencies
 npm install
-```
-```bash
-# Inicie o projeto
+
+# Start the frontend
 ng serve --open
 ```
+Interface opens at:
+👉 http://localhost:4200/
 
-A interface abrirá automaticamente em:
-http://localhost:4200/
-
-🧩 Estrutura de Pastas
+🧩 Folder Structure
 ```bash
 
 NEUROGENESISAI/
-├── neuro-genesis-front/           # Frontend Angular
-├── NeuroGenesisAI/                # Núcleo do projeto (lógica do cérebro)
-├── NeuroGenesisAI.API/            # Backend .NET Core (Web API)
+├── neuro-genesis-front/           # Angular Frontend
+├── NeuroGenesisAI/                # Core brain logic
+├── NeuroGenesisAI.API/            # .NET Core Web API
 │   ├── Controllers/
 │   ├── Services/
 │   ├── Entities/
 │   └── Snapshots/
-├── NeuroGenesisAI.VisualizerWPF/  # (Opcional) Visualizador WPF do cérebro
-├── brain.json                     # Configuração inicial do cérebro artificial
-├── NeuroGenesisAI.sln            # Solução do Visual Studio
-└── README.md                      # Documentação do projeto
-
+├── NeuroGenesisAI.VisualizerWPF/  # (Optional) WPF Brain Visualizer
+├── brain.json                     # Initial brain configuration
+├── NeuroGenesisAI.sln             # Visual Studio solution file
+└── README.md                      # Project documentation
 ```
+🚀 Features
+📊 Dashboard: Displays neuron, cluster, and emotion count
 
-🚀 Funcionalidades
-Dashboard: Visualiza número de neurônios, clusters e emoções.
+📈 Charts: Real-time neural growth statistics
 
-Gráficos: Estatísticas em tempo real do crescimento neural.
+📜 Logs: Monitors brain events
 
-Logs: Monitoramento dos eventos registrados.
+🕸️ Connection Graph: Visualizes neuron relationships
 
-Gráfico de Conexões: Relações entre neurônios.
+✉️ Stimulus Input: Allows user interaction with the brain
 
-Envio de Estímulo: Permite influenciar o cérebro.
+📤 CSV Export: Snapshots of neurons, connections, and clusters
 
-Exportação CSV: Snapshot de neurônios, conexões e clusters.
+🛤️ Project Status
 
-🛤️ Status do Projeto
-Backend: Funcional ✅
+Component	Status
+Backend	✅ Functional
+Frontend	🚧 In development
+Documentation	📚 In progress
 
-Frontend: Em desenvolvimento 🚧
+🔭 Next Steps
+🔹 Improve graph visualizations
 
-Documentação: Em andamento 📚
+🔹 Add training parameters
 
-Próximos Passos:
+🔹 Implement basic AI behavior in neurons
 
-Melhorar a visualização dos gráficos
+💡 Inspiration
+Created with passion to explore the boundaries between life, neural growth, and artificial intelligence.
+🧠🚀
 
-Adicionar parâmetros de treinamento
-
-Implementar IA rudimentar nos neurônios
-
-Feito com dedicação para explorar as fronteiras entre vida, crescimento neural e inteligência artificial! 🧠🚀
