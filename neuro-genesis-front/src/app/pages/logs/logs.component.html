@@ -1,0 +1,22 @@
+<div class="logs-container">
+  <div *ngIf="loading" class="status loading">
+    🔄 Carregando logs...
+  </div>
+
+  <div *ngIf="errorMessage" class="status error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="logs.length > 0; else noLogs">
+    <div class="log-entry" *ngFor="let log of logs">
+      <span class="timestamp">{{ log.timestamp | date: 'short' }}</span> - 
+      <span class="message">{{ log.message }}</span>
+    </div>
+  </div>
+
+  <ng-template #noLogs>
+    <div class="status empty">
+      Nenhum log encontrado.
+    </div>
+  </ng-template>
+</div>

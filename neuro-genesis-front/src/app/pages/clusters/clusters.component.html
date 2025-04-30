@@ -1,0 +1,30 @@
+<div class="clusters-container">
+    <!-- Cabeçalho -->
+    <header class="clusters-header">
+      <h1>🧩 Clusters do NeuroGenesis</h1>
+      <p>Organização dos neurônios por especialização</p>
+    </header>
+  
+    <!-- Mensagens de sistema -->
+    <div *ngIf="loading" class="status loading">🔄 Carregando clusters...</div>
+    <div *ngIf="errorMessage" class="status error">{{ errorMessage }}</div>
+  
+    <!-- Listagem de Clusters -->
+    <section class="clusters-grid" *ngIf="clusters.length > 0; else noClusters">
+      <div class="cluster-card" *ngFor="let cluster of clusters">
+        <h2>{{ cluster.name }}</h2>
+        <p><strong>Total de Neurônios:</strong> {{ cluster.neurons.length }}</p>
+  
+        <div class="neurons-list">
+          <div class="neuron-chip" *ngFor="let neuron of cluster.neurons">
+            🧠 {{ neuron.id }} <span class="maturity">(Maturidade: {{ neuron.maturityLevel }})</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <ng-template #noClusters>
+      <div class="status empty">🚫 Nenhum cluster encontrado.</div>
+    </ng-template>
+  </div>
+  

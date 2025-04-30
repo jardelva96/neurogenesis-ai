@@ -1,0 +1,117 @@
+{
+  "$id": "1",
+  "Neurons": {
+    "$id": "2",
+    "$values": [
+      {
+        "$id": "3",
+        "Id": "root",
+        "MaturityLevel": 1536
+      },
+      {
+        "$id": "4",
+        "Id": "root-1",
+        "MaturityLevel": 1536
+      },
+      {
+        "$id": "5",
+        "Id": "root-2",
+        "MaturityLevel": 1535
+      },
+      {
+        "$id": "6",
+        "Id": "root-1-1",
+        "MaturityLevel": 1536
+      },
+      {
+        "$id": "7",
+        "Id": "root-3",
+        "MaturityLevel": 1535
+      },
+      {
+        "$id": "8",
+        "Id": "root-1-2",
+        "MaturityLevel": 1535
+      },
+      {
+        "$id": "9",
+        "Id": "root-2-1",
+        "MaturityLevel": 1535
+      },
+      {
+        "$id": "10",
+        "Id": "root-2-1-1",
+        "MaturityLevel": 1534
+      }
+    ]
+  },
+  "Clusters": {
+    "$id": "11",
+    "$values": [
+      {
+        "$id": "12",
+        "Name": "Vis\u00E3o",
+        "Neurons": {
+          "$id": "13",
+          "$values": [
+            {
+              "$ref": "5"
+            }
+          ]
+        },
+        "Specialization": "Luz"
+      },
+      {
+        "$id": "14",
+        "Name": "Audi\u00E7\u00E3o",
+        "Neurons": {
+          "$id": "15",
+          "$values": [
+            {
+              "$ref": "6"
+            },
+            {
+              "$ref": "10"
+            }
+          ]
+        },
+        "Specialization": "Som"
+      },
+      {
+        "$id": "16",
+        "Name": "Mem\u00F3ria",
+        "Neurons": {
+          "$id": "17",
+          "$values": [
+            {
+              "$ref": "3"
+            },
+            {
+              "$ref": "4"
+            },
+            {
+              "$ref": "7"
+            }
+          ]
+        },
+        "Specialization": "Mem\u00F3ria"
+      },
+      {
+        "$id": "18",
+        "Name": "Movimento",
+        "Neurons": {
+          "$id": "19",
+          "$values": [
+            {
+              "$ref": "8"
+            },
+            {
+              "$ref": "9"
+            }
+          ]
+        },
+        "Specialization": "Movimento"
+      }
+    ]
+  }
+}

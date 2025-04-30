@@ -1,0 +1,101 @@
+<div class="dashboard-container">
+  <!-- Cabeçalho -->
+  <header class="header">
+    <h1>🧠 NeuroGenesis AI</h1>
+    <p>Simulador de Cérebro Artificial Vivo</p>
+  </header>
+
+  <!-- Estatísticas -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <h2>🔢 Total de Neurônios</h2>
+      <p class="stat-value">{{ brainStatus?.neuronCount || 'Carregando...' }}</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>🧩 Clusters Criados</h2>
+      <p class="stat-value">{{ brainStatus?.clusterCount || 'Carregando...' }}</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>💬 Emoções Atuais</h2>
+      <ul *ngIf="brainStatus?.emotions; else noEmotions">
+        <li *ngFor="let emotion of emotionEntries()">
+          {{ emotion[0] }}: {{ emotion[1] }}
+        </li>
+      </ul>
+      <ng-template #noEmotions><p>Sem dados.</p></ng-template>
+    </div>
+  </section>
+
+  <!-- Gráficos -->
+  <section class="charts-grid">
+    <div class="chart-card">
+      <h2>📈 Evolução de Neurônios</h2>
+      <ngx-charts-line-chart
+        [view]="[700, 300]"
+        [scheme]="'vivid'"
+        [results]="neuronHistory"
+        [gradient]="false"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="false"
+        [showXAxisLabel]="true"
+        [xAxisLabel]="'Ciclos'"
+        [showYAxisLabel]="true"
+        [yAxisLabel]="'Qtd Neurônios'">
+      </ngx-charts-line-chart>
+    </div>
+
+    <div class="chart-card">
+      <h2>🧠 Distribuição de Emoções</h2>
+      <ngx-charts-pie-chart
+        [view]="[500, 300]"
+        [scheme]="'vivid'"
+        [results]="neuronData"
+        [legend]="true"
+        [explodeSlices]="false"
+        [doughnut]="true">
+      </ngx-charts-pie-chart>
+    </div>
+  </section>
+
+  <!-- Formulário de estímulos -->
+  <section class="stimulus-form">
+    <h2>⚡ Enviar Novo Estímulo</h2>
+    <div class="stimulus-input-group">
+      <input
+        [(ngModel)]="stimulusInput"
+        placeholder="Digite um estímulo (ex: Luz forte, Som alto...)"
+        class="stimulus-input"
+      />
+      <button (click)="sendStimulus()" class="stimulus-button">Enviar</button>
+    </div>
+  </section>
+
+  <!-- Área de Logs -->
+  <section class="logs-section">
+    <h2>📝 Logs de Atividade</h2>
+    <div class="logs-container">
+      <div *ngFor="let log of logs" class="log-entry">
+        {{ log.timestamp | date:'short' }} - {{ log.message }}
+      </div>
+    </div>
+    <button (click)="loadLogs()" class="refresh-button">Atualizar Logs</button>
+  </section>
+
+  <!-- Área de Exportação de Snapshots -->
+  <section class="snapshots-section">
+    <h2>💾 Exportar Snapshots</h2>
+    <div class="snapshot-buttons">
+      <button (click)="downloadCsv('neurons')" class="snapshot-button">Baixar Neurônios CSV</button>
+      <button (click)="downloadCsv('connections')" class="snapshot-button">Baixar Conexões CSV</button>
+      <button (click)="downloadCsv('clusters')" class="snapshot-button">Baixar Clusters CSV</button>
+    </div>
+  </section>
+
+  <!-- Mensagem de Erro -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

@@ -1,0 +1,245 @@
+{
+  "$id": "1",
+  "Neurons": {
+    "$id": "2",
+    "$values": [
+      {
+        "$id": "3",
+        "Id": "root",
+        "MaturityLevel": 3066
+      },
+      {
+        "$id": "4",
+        "Id": "root-1",
+        "MaturityLevel": 3065
+      },
+      {
+        "$id": "5",
+        "Id": "root-2",
+        "MaturityLevel": 3065
+      },
+      {
+        "$id": "6",
+        "Id": "root-1-1",
+        "MaturityLevel": 3065
+      },
+      {
+        "$id": "7",
+        "Id": "root-3",
+        "MaturityLevel": 3065
+      },
+      {
+        "$id": "8",
+        "Id": "root-2-1",
+        "MaturityLevel": 3065
+      },
+      {
+        "$id": "9",
+        "Id": "root-1-2",
+        "MaturityLevel": 3064
+      },
+      {
+        "$id": "10",
+        "Id": "root-1-1-2",
+        "MaturityLevel": 3065
+      },
+      {
+        "$id": "11",
+        "Id": "root-3-1",
+        "MaturityLevel": 3064
+      },
+      {
+        "$id": "12",
+        "Id": "root-2-1-1",
+        "MaturityLevel": 3064
+      },
+      {
+        "$id": "13",
+        "Id": "root-2-3",
+        "MaturityLevel": 3064
+      },
+      {
+        "$id": "14",
+        "Id": "root-3-2",
+        "MaturityLevel": 3064
+      },
+      {
+        "$id": "15",
+        "Id": "root-1-2-1",
+        "MaturityLevel": 3063
+      },
+      {
+        "$id": "16",
+        "Id": "root-3-1-1",
+        "MaturityLevel": 3064
+      },
+      {
+        "$id": "17",
+        "Id": "root-2-1-1-1",
+        "MaturityLevel": 3063
+      },
+      {
+        "$id": "18",
+        "Id": "root-3-1-2",
+        "MaturityLevel": 3063
+      },
+      {
+        "$id": "19",
+        "Id": "root-2-3-1",
+        "MaturityLevel": 3063
+      },
+      {
+        "$id": "20",
+        "Id": "root-3-2-1",
+        "MaturityLevel": 3063
+      },
+      {
+        "$id": "21",
+        "Id": "root-3-1-1-1",
+        "MaturityLevel": 3063
+      },
+      {
+        "$id": "22",
+        "Id": "root-2-1-1-1-1",
+        "MaturityLevel": 3062
+      },
+      {
+        "$id": "23",
+        "Id": "root-3-1-2-1",
+        "MaturityLevel": 3062
+      },
+      {
+        "$id": "24",
+        "Id": "root-2-1-1-1-1-1",
+        "MaturityLevel": 3061
+      },
+      {
+        "$id": "25",
+        "Id": "root-3-1-2-1-1",
+        "MaturityLevel": 3061
+      },
+      {
+        "$id": "26",
+        "Id": "root-2-1-1-1-1-1-1",
+        "MaturityLevel": 3060
+      }
+    ]
+  },
+  "Clusters": {
+    "$id": "27",
+    "$values": [
+      {
+        "$id": "28",
+        "Name": "Vis\u00E3o",
+        "Neurons": {
+          "$id": "29",
+          "$values": [
+            {
+              "$ref": "4"
+            },
+            {
+              "$ref": "10"
+            },
+            {
+              "$ref": "15"
+            },
+            {
+              "$ref": "18"
+            },
+            {
+              "$ref": "20"
+            },
+            {
+              "$ref": "22"
+            },
+            {
+              "$ref": "26"
+            }
+          ]
+        },
+        "Specialization": "Luz"
+      },
+      {
+        "$id": "30",
+        "Name": "Audi\u00E7\u00E3o",
+        "Neurons": {
+          "$id": "31",
+          "$values": [
+            {
+              "$ref": "5"
+            },
+            {
+              "$ref": "7"
+            },
+            {
+              "$ref": "8"
+            },
+            {
+              "$ref": "11"
+            },
+            {
+              "$ref": "14"
+            },
+            {
+              "$ref": "19"
+            },
+            {
+              "$ref": "24"
+            }
+          ]
+        },
+        "Specialization": "Som"
+      },
+      {
+        "$id": "32",
+        "Name": "Mem\u00F3ria",
+        "Neurons": {
+          "$id": "33",
+          "$values": [
+            {
+              "$ref": "3"
+            },
+            {
+              "$ref": "6"
+            },
+            {
+              "$ref": "9"
+            },
+            {
+              "$ref": "13"
+            },
+            {
+              "$ref": "17"
+            },
+            {
+              "$ref": "23"
+            },
+            {
+              "$ref": "25"
+            }
+          ]
+        },
+        "Specialization": "Mem\u00F3ria"
+      },
+      {
+        "$id": "34",
+        "Name": "Movimento",
+        "Neurons": {
+          "$id": "35",
+          "$values": [
+            {
+              "$ref": "12"
+            },
+            {
+              "$ref": "16"
+            },
+            {
+              "$ref": "21"
+            }
+          ]
+        },
+        "Specialization": "Movimento"
+      }
+    ]
+  }
+}
