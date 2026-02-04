@@ -12,6 +12,8 @@ namespace NeuroGenesisAI.API.Services
         private readonly ILogger<BrainSimulationService> _logger;
         private static int _cycleIntervalMs = 10000; // 10 segundos por padrão
         private static bool _isEnabled = true;
+        private static readonly object _lock = new object();
+        private const int MinCycleIntervalMs = 1000; // Mínimo de 1 segundo
 
         public BrainSimulationService(ILogger<BrainSimulationService> logger)
         {
@@ -20,25 +22,37 @@ namespace NeuroGenesisAI.API.Services
 
         public static void SetCycleInterval(int milliseconds)
         {
-            if (milliseconds >= 1000) // Mínimo de 1 segundo
+            if (milliseconds >= MinCycleIntervalMs)
             {
-                _cycleIntervalMs = milliseconds;
+                lock (_lock)
+                {
+                    _cycleIntervalMs = milliseconds;
+                }
             }
         }
 
         public static int GetCycleInterval()
         {
-            return _cycleIntervalMs;
+            lock (_lock)
+            {
+                return _cycleIntervalMs;
+            }
         }
 
         public static void SetEnabled(bool enabled)
         {
-            _isEnabled = enabled;
+            lock (_lock)
+            {
+                _isEnabled = enabled;
+            }
         }
 
         public static bool IsEnabled()
         {
-            return _isEnabled;
+            lock (_lock)
+            {
+                return _isEnabled;
+            }
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -47,7 +61,16 @@ namespace NeuroGenesisAI.API.Services
 
             while (!stoppingToken.IsCancellationRequested)
             {
-                if (_isEnabled)
+                bool enabled;
+                int intervalMs;
+                
+                lock (_lock)
+                {
+                    enabled = _isEnabled;
+                    intervalMs = _cycleIntervalMs;
+                }
+
+                if (enabled)
                 {
                     try
                     {
@@ -64,7 +87,7 @@ namespace NeuroGenesisAI.API.Services
                     }
                 }
 
-                await Task.Delay(_cycleIntervalMs, stoppingToken);
+                await Task.Delay(intervalMs, stoppingToken);
             }
 
             _logger.LogInformation("Brain Simulation Service encerrado.");

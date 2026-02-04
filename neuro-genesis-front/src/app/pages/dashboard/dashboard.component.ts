@@ -151,7 +151,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.brainService.getCycleConfig().subscribe({
       next: (config) => {
         this.cycleEnabled = config.enabled;
-        this.cycleIntervalSeconds = config.intervalMs / 1000;
+        this.cycleIntervalSeconds = Math.floor(config.intervalMs / 1000);
       },
       error: (err) => {
         console.error('Erro ao carregar configuração do ciclo:', err);

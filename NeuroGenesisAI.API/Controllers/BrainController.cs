@@ -120,6 +120,7 @@ namespace NeuroGenesisAI.API.Controllers
                 {
                     id = n.Id,
                     maturityLevel = n.MaturityLevel,
+                    // Cast to Neuron to access Connections property (INeuron interface doesn't expose it)
                     connections = (n as Neuron)?.Connections.Select(c => c.Target.Id).ToList() ?? new List<string>()
                 }).ToList()
             }).ToList();
