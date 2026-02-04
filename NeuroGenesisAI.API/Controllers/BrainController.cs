@@ -16,6 +16,11 @@ namespace NeuroGenesisAI.API.Controllers
         private static readonly Trainer _trainer = new Trainer(_brain);
 
         /// <summary>
+        /// Retorna a instância do cérebro para uso por outros serviços.
+        /// </summary>
+        public static Brain GetBrainInstance() => _brain;
+
+        /// <summary>
         /// Envia um estímulo externo ao cérebro.
         /// </summary>
         [HttpPost("stimulate")]
@@ -28,6 +33,60 @@ namespace NeuroGenesisAI.API.Controllers
             LoggerService.Log($"API: Estímulo '{request.Stimulus}' enviado ao cérebro.");
 
             return Ok(new { message = $"Estímulo '{request.Stimulus}' enviado com sucesso!" });
+        }
+
+        /// <summary>
+        /// Executa um ciclo manual de simulação do cérebro.
+        /// </summary>
+        [HttpPost("cycle")]
+        public IActionResult ExecuteCycle()
+        {
+            _brain.Cycle();
+            LoggerService.Log("API: Ciclo manual executado.");
+
+            return Ok(new 
+            { 
+                message = "Ciclo executado com sucesso!",
+                neuronCount = _brain.Neurons.Count,
+                clusterCount = _brain.Clusters.Count
+            });
+        }
+
+        /// <summary>
+        /// Obtém a configuração do ciclo automático.
+        /// </summary>
+        [HttpGet("cycle/config")]
+        public IActionResult GetCycleConfig()
+        {
+            return Ok(new
+            {
+                enabled = Services.BrainSimulationService.IsEnabled(),
+                intervalMs = Services.BrainSimulationService.GetCycleInterval()
+            });
+        }
+
+        /// <summary>
+        /// Configura o ciclo automático (habilitar/desabilitar e intervalo).
+        /// </summary>
+        [HttpPost("cycle/config")]
+        public IActionResult SetCycleConfig([FromBody] CycleConfigRequest request)
+        {
+            if (request.Enabled.HasValue)
+            {
+                Services.BrainSimulationService.SetEnabled(request.Enabled.Value);
+            }
+
+            if (request.IntervalMs.HasValue)
+            {
+                Services.BrainSimulationService.SetCycleInterval(request.IntervalMs.Value);
+            }
+
+            return Ok(new
+            {
+                message = "Configuração atualizada com sucesso!",
+                enabled = Services.BrainSimulationService.IsEnabled(),
+                intervalMs = Services.BrainSimulationService.GetCycleInterval()
+            });
         }
 
         /// <summary>
@@ -60,7 +119,9 @@ namespace NeuroGenesisAI.API.Controllers
                 neurons = cluster.Neurons.Select(n => new
                 {
                     id = n.Id,
-                    maturityLevel = n.MaturityLevel
+                    maturityLevel = n.MaturityLevel,
+                    // Cast to Neuron to access Connections property (INeuron interface doesn't expose it)
+                    connections = (n as Neuron)?.Connections.Select(c => c.Target.Id).ToList() ?? new List<string>()
                 }).ToList()
             }).ToList();
 
@@ -118,6 +179,15 @@ namespace NeuroGenesisAI.API.Controllers
     /// </summary>
     public class StimulusRequest
     {
-        public string Stimulus { get; set; }
+        public required string Stimulus { get; set; }
+    }
+
+    /// <summary>
+    /// Modelo para configurar o ciclo automático.
+    /// </summary>
+    public class CycleConfigRequest
+    {
+        public bool? Enabled { get; set; }
+        public int? IntervalMs { get; set; }
     }
 }

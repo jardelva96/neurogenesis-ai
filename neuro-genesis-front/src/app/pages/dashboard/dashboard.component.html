@@ -73,6 +73,33 @@
     </div>
   </section>
 
+  <!-- Controle de Ciclos -->
+  <section class="cycle-control">
+    <h2>🔄 Controle de Simulação</h2>
+    <div class="cycle-controls">
+      <button (click)="executeCycle()" class="cycle-button">Executar Ciclo Manual</button>
+      
+      <div class="cycle-config">
+        <label>
+          <input type="checkbox" [(ngModel)]="cycleEnabled" (change)="updateCycleConfig()" />
+          Ciclos Automáticos Ativados
+        </label>
+        
+        <div class="interval-control">
+          <label>Intervalo (segundos):</label>
+          <input 
+            type="number" 
+            [(ngModel)]="cycleIntervalSeconds" 
+            min="1" 
+            max="60"
+            (change)="updateCycleConfig()"
+            class="interval-input"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Área de Logs -->
   <section class="logs-section">
     <h2>📝 Logs de Atividade</h2>

@@ -32,6 +32,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   loading: boolean = false;
   errorMessage: string = '';
+  
+  // Cycle configuration
+  cycleEnabled: boolean = true;
+  cycleIntervalSeconds: number = 10;
 
   private refreshSubscription?: Subscription;
 
@@ -40,6 +44,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loadBrainStatus();
     this.loadLogs();
+    this.loadCycleConfig();
 
     this.refreshSubscription = interval(5000).subscribe(() => {
       this.loadBrainStatus();
@@ -137,5 +142,53 @@ export class DashboardComponent implements OnInit, OnDestroy {
       .catch(err => {
         console.error('Erro ao baixar CSV:', err);
       });
+  }
+
+  /**
+   * Carrega a configuração atual do ciclo automático.
+   */
+  loadCycleConfig(): void {
+    this.brainService.getCycleConfig().subscribe({
+      next: (config) => {
+        this.cycleEnabled = config.enabled;
+        this.cycleIntervalSeconds = Math.floor(config.intervalMs / 1000);
+      },
+      error: (err) => {
+        console.error('Erro ao carregar configuração do ciclo:', err);
+      }
+    });
+  }
+
+  /**
+   * Executa um ciclo manual.
+   */
+  executeCycle(): void {
+    this.brainService.executeCycle().subscribe({
+      next: (response) => {
+        console.log('Ciclo manual executado:', response);
+        this.loadBrainStatus();
+        this.loadLogs();
+      },
+      error: (err) => {
+        console.error('Erro ao executar ciclo:', err);
+        this.errorMessage = 'Erro ao executar ciclo manual.';
+      }
+    });
+  }
+
+  /**
+   * Atualiza a configuração do ciclo automático.
+   */
+  updateCycleConfig(): void {
+    const intervalMs = this.cycleIntervalSeconds * 1000;
+    this.brainService.setCycleConfig(this.cycleEnabled, intervalMs).subscribe({
+      next: (response) => {
+        console.log('Configuração do ciclo atualizada:', response);
+      },
+      error: (err) => {
+        console.error('Erro ao atualizar configuração do ciclo:', err);
+        this.errorMessage = 'Erro ao atualizar configuração do ciclo.';
+      }
+    });
   }
 }

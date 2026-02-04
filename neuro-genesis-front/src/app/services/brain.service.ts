@@ -24,7 +24,15 @@ export interface BrainStatus {
  */
 export interface ClusterStatus {
   name: string;
-  neurons: { id: string; maturityLevel: number }[];
+  neurons: { id: string; maturityLevel: number; connections: string[] }[];
+}
+
+/**
+ * Representa a configuração do ciclo automático.
+ */
+export interface CycleConfig {
+  enabled: boolean;
+  intervalMs: number;
 }
 
 @Injectable({
@@ -61,5 +69,26 @@ export class BrainService {
    */
   getLogs(): Observable<LogEntry[]> {
     return this.http.get<LogEntry[]>(`${this.apiUrl}/logs`);
+  }
+
+  /**
+   * Executa um ciclo manual de simulação.
+   */
+  executeCycle(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/cycle`, {});
+  }
+
+  /**
+   * Obtém a configuração do ciclo automático.
+   */
+  getCycleConfig(): Observable<CycleConfig> {
+    return this.http.get<CycleConfig>(`${this.apiUrl}/cycle/config`);
+  }
+
+  /**
+   * Configura o ciclo automático.
+   */
+  setCycleConfig(enabled?: boolean, intervalMs?: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/cycle/config`, { enabled, intervalMs });
   }
 }

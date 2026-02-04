@@ -84,34 +84,57 @@ NEUROGENESISAI/
 ├── NeuroGenesisAI.sln             # Visual Studio solution file
 └── README.md                      # Project documentation
 ```
-🚀 Features
-📊 Dashboard: Displays neuron, cluster, and emotion count
+## 🚀 Features
 
-📈 Charts: Real-time neural growth statistics
+### Dashboard
+- 📊 **Real-time Statistics**: Displays neuron count, cluster count, and emotion distribution
+- 📈 **Interactive Charts**: 
+  - Line chart showing neuron evolution over time
+  - Pie chart displaying emotion distribution
+- ⚡ **Stimulus Input**: Send external stimuli to influence brain behavior
+- 🔄 **Cycle Control**: 
+  - Manual cycle execution
+  - Toggle automatic cycles on/off
+  - Adjustable cycle interval (1-60 seconds)
 
-📜 Logs: Monitors brain events
+### Monitoring & Analysis
+- 📜 **Real-time Logs**: Monitor all brain events and activities
+- 🕸️ **Connection Graph**: Visualize neuron relationships and connections
+- 📤 **CSV Export**: Export snapshots of neurons, connections, and clusters for analysis
 
-🕸️ Connection Graph: Visualizes neuron relationships
+### Backend API
+- ✅ **RESTful API**: Complete API for brain simulation control
+- 🔄 **Background Service**: Automatic cycle execution
+- 📊 **Status Endpoints**: Get brain state, clusters, and logs
+- 🧪 **Stimulus Processing**: Emotion-based neuron responses
 
-✉️ Stimulus Input: Allows user interaction with the brain
+## 🛤️ Project Status
 
-📤 CSV Export: Snapshots of neurons, connections, and clusters
+| Component | Status |
+|-----------|--------|
+| Backend | ✅ Fully Functional |
+| Frontend | ✅ Functional with UI Controls |
+| Documentation | 📚 Updated |
+| Tests | 🚧 To be implemented |
 
-🛤️ Project Status
+## 📋 Recent Improvements
 
-Component	Status
-Backend	✅ Functional
-Frontend	🚧 In development
-Documentation	📚 In progress
+✅ Fixed C# nullability warnings  
+✅ Added automatic brain cycle background service  
+✅ Implemented cycle control API endpoints  
+✅ Added cycle control UI in dashboard  
+✅ Enhanced clusters endpoint to include neuron connections  
+✅ Improved error handling and loading states  
 
-🔭 Next Steps
-🔹 Improve graph visualizations
+## 🔭 Next Steps
 
-🔹 Add training parameters
+🔹 Implement comprehensive unit tests  
+🔹 Add more graph visualization options  
+🔹 Implement training parameters and learning algorithms  
+🔹 Add persistence layer (database) for brain state  
+🔹 Enhance AI behavior and decision-making in neurons  
 
-🔹 Implement basic AI behavior in neurons
-
-💡 Inspiration
+## 💡 Inspiration
 Created with passion to explore the boundaries between life, neural growth, and artificial intelligence.
 🧠🚀
 
